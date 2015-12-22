@@ -9,3 +9,4 @@ Config Options see: org.apache.catalina.valves.AbstractAccessLogValve
                       pattern="%h %l %u %t &quot;%r&quot; %s %b"/>
 </Host>
 ```
+[![Build Status](https://travis-ci.org/ImmobilienScout24/tomcat-stdout-accesslog.svg?branch=master)](https://travis-ci.org/ImmobilienScout24/tomcat-stdout-accesslog)
