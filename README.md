@@ -89,3 +89,18 @@ control characters.
 ```
 [![Build Status](https://travis-ci.org/ImmobilienScout24/tomcat-stdout-accesslog.svg?branch=master)](https://travis-ci.org/ImmobilienSc````out24/tomcat-stdout-accesslog)
 
+# Howto Release
+
+Lets make a release.  For this, we use the maven release plugin from our local dev box.
+
+Make sure you are caught up with #master branch (git fetch/pull).
+Run `mvn release:clean` and `mvn clean`.
+Now, run the maven release:
+
+`mvn release:prepare`
+
+This will bump our version in the pom, removing -SNAPSHOT, tag it with the version we say to (use the default, so the regex in travis matches), push commits/tags, and then bump the version and add -SNAPSHOT, making a final commit so the latest version is in git.
+
+Ultimately travis sees this tag, and our after_success tests pass, and a ‘mvn deploy’ occurs, which, with the settings.xml, sends the artifacts into Travis at our repo and package we set up.
+
+After every release you run, do a local `mvn release:clean`, and git fetch/pull.
