@@ -4,7 +4,7 @@
 
     <groupId>de.is24.tomcat</groupId>
     <artifactId>tomcat-stdout-accesslog</artifactId>
-    <version>0.1</version>
+    <version>0.1-SNAPSHOT</version>
 
 
     <build>
@@ -66,7 +66,7 @@
 
     <scm>
         <url>https://github.com/ImmobilienScout24/tomcat-stdout-accesslog</url>
-        <connection>scm:git:git://github.com/ImmobilienScout24/tomcat-stdout-accesslog.git</connection>
+        <connection>scm:git:https://github.com/ImmobilienScout24/tomcat-stdout-accesslog.git</connection>
         <developerConnection>scm:git:git@github.com:ImmobilienScout24/tomcat-stdout-accesslog.git</developerConnection>
       <tag>tomcat-stdout-accesslog-0.1</tag>
   </scm>
