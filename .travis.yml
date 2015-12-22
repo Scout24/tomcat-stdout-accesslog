@@ -1,3 +1,17 @@
 language: java
 jdk:
   - oraclejdk8
+
+after_success:
+  - mvn clean javadoc:jar
+  - test "${TRAVIS_PULL_REQUEST}" == "false" &&  test "${TRAVIS_TAG}" != "" && mvn deploy --settings settings.xml
+
+branches:
+  only:
+    - master
+      # Build tags that match this regex in addition to building the master branch.
+    - /^tomcat-stdout-accesslog-[0-9]+\.[0-9]+\.[0-9]+/
+
+env:
+  - secure:  "XeR77+AELqSXGKnYJ7iivHu6A14TpW0HJ75Qc3LW5li5hA3zTwd651FQXekeLNmMJm6Me8nr3wq0vDLyS9ZcvZQsEP0xpBNTTafs4VkSQF7EGl/zJYuRq0KJY7gYNK3xt7FVPhGVeG2q19g1EZtkoqxJ/Mm2mCIjqGwOXaPAkBoGflLDCtWd88iLXDDwUEdr2ldQ4ql5OxEVlCqO8q4yLUBf/z8Cn9k371MZ9K3urcow+29SNRSPzEfFG6fKjgDTNPJgncIlTfgKHBcjFWcm3YjPNY28bNpqD0AyGUbKNpUb9e/0ZoG0mQdNTonGo43ec4dFN3eEq1ogku1WdydZFFoQQU/Rzl3MipbXiQ2X1kKWym+2MKXARpSu0phz3aaHtYkNAa9vzFEEv0oQR9kGY/QuxkR/Cgze9RLqC0frtJVQ1xMHA9eqGpz74QSWM5tfWO4VaACQQmNNYRWBc3v3AWTgRFqlXyJxrJXm/0OM19DJCV1LUb050p0PsGTcasXyroePSWFRltji1cFgpWOJ+USC5DKPykaTaXvrrOzbQg4quARdz7A08I8xLorqM7+v18Qb/3ChL/aePicsT7tjahBbTVdDhRni5VZbV6orehWx2ztRKm78mV2KP1jH8Iem0RO8b+XYAPEoE/lFFxyVgSCugLmJ/gxDTuvKXW6Tr2Y="
+  - secure: "jq3LXWC8bjknYpJtmzaiQ7rNKaFdHmPzognuPXiY7sT+daSHFLZNfGKpORY3qN+XiT1szYJ7QiWQV6fcUTjYnbgoWlV1DoGvzpKv+bwj6IKBDWFvTfx04JKyIzP886Bxoee84yTdKGSG/W1gotxneHDmibFTbzVoFRMiXH/eTB9ydzSHG5qMBM5gj18OQK6cpgvtUObb/Q1PrkKj94JZPIky7fVQSB3+78ySf5RsMaKog/5pmWkrgfT18E6gALs09nWWuqsxzbG+ajt7fONFN/d1TylamzkO4buL/YG3ijRciVxUKiM1UHmx/ZcroNUs03MEVLAplHmeyZWtEO3YAuS8/F8SoMsxPAZmIhxNQElZH/sq2NpT0fr6zDhzu9K9kVPak/UVUG475NYK0DGSUQzs4USr1nrMVTv04eFVt/unxP72T0HkpWjlg2LdJig8S9uqPWqh4ReO3RHXl+jwDEirKOCvrw0SY2S9zdln8U9rNfEXy4RZIBAmhOL2dvVBuYxB+tf/J6j5mRx7wS9x2KhlaGgkd7iN5IM7xrlv/1yOFWGFO3mVqyRaNUBsDkJgflCUnqCiFgXZ1YjL4ULQlZBjSJLqcU6vBWzBpKEH30ivHqLsNp+rpINbg7p3rcgEP+Egwp9ZvZOlqOBCGptQsddUyJ04LOxtugzqsf/8y6M="

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.is24.tomcat</groupId>
-    <artifactId>tomcat-accesslog</artifactId>
+    <artifactId>tomcat-stdout-accesslog</artifactId>
     <version>0.1-SNAPSHOT</version>
 
 
@@ -47,6 +47,11 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.2</version>
             </plugin>
         </plugins>
     </build>
