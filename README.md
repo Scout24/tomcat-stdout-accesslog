@@ -1,3 +1,5 @@
+[ ![Download](https://api.bintray.com/packages/immobilienscout24/maven-oss-releases-repo/tomcat-stdout-accesslog/images/download.svg) ](https://bintray.com/immobilienscout24/maven-oss-releases-repo/tomcat-stdout-accesslog/_latestVersion)
+
 Config Options from: org.apache.catalina.valves.AbstractAccessLogValve
 
 <p>Abstract implementation of the <b>Valve</b> interface that generates a web
