@@ -86,6 +86,6 @@ public class StdoutAccessLogValve extends AbstractAccessLogValve {
 
     @Override
     protected void log(CharArrayWriter message) {
-        System.out.println(message.toString());
+        System.out.println(message.toCharArray());
     }
 }
